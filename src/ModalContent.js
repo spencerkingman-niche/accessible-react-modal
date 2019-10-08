@@ -1,8 +1,9 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import './ModalContent.css'
 
 export const ModalContent = () => {
-    return (
+    return ReactDOM.createPortal(
         <aside className="c-modal-cover">
             <div className="c-modal">
                 <button className="c-modal__close">
@@ -13,6 +14,7 @@ export const ModalContent = () => {
                     CONTENT WILL GO HERE
                 </div>
             </div>
-        </aside>
+        </aside>, 
+        document.body
     );
 }
