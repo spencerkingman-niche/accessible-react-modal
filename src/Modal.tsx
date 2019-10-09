@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, KeyboardEvent, MouseEvent } from 'react'
 
 import { ModalContent } from './ModalContent'
 import { ModalTrigger } from './ModalTrigger'
@@ -13,34 +13,37 @@ interface IState {
     isOpen: boolean
 }
 
-export class Modal extends Component<IProps, IState>{
+export class Modal extends Component<IProps, IState> {
     modalNode: any
     openButtonNode: any
     closeButtonNode: any
 
     state = { isOpen: false }
-    
-    onClickAway = (e) => {
-        if (this.modalNode && this.modalNode.contains(e.target)) return;
-        this.onClose();
-    };
+
+    onClickAway = (e: MouseEvent) => {
+        if (this.modalNode && this.modalNode.contains(e.target)) return
+        this.onClose()
+    }
 
     onClose = () => {
         this.setState({ isOpen: false })
         this.openButtonNode.focus()
-        this.toggleScrollLock();
+        this.toggleScrollLock()
     }
 
     onOpen = () => {
         this.setState({ isOpen: true }, () => {
             this.closeButtonNode.focus()
         })
-        this.toggleScrollLock();
+        this.toggleScrollLock()
     }
 
-    onKeyDown = ({ keyCode }) => keyCode === 27 && this.onClose()
+    onKeyDown = ({ keyCode }: KeyboardEvent) => keyCode === 27 && this.onClose()
 
-    toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
+    toggleScrollLock = () =>
+        typeof document !== 'undefined' &&
+        // @ts-ignore
+        document.querySelector('html').classList.toggle('u-lock-scroll')
 
     render() {
         const { isOpen } = this.state
@@ -48,22 +51,22 @@ export class Modal extends Component<IProps, IState>{
         return (
             <Fragment>
                 <ModalTrigger
-                    buttonRef={ n => this.openButtonNode = n }
-                    onOpen={ this.onOpen }
-                    text={ triggerText }
+                    buttonRef={(n: any) => (this.openButtonNode = n)}
+                    onOpen={this.onOpen}
+                    text={triggerText}
                 />
-                { isOpen && 
+                {isOpen && (
                     <ModalContent
-                        ariaLabel={ ariaLabel }
-                        buttonRef={ n => this.closeButtonNode = n }
-                        content={ children }
-                        modalRef={ n => this.modalNode = n }
-                        onClickAway={ this.onClickAway }
-                        onClose={ this.onClose }
-                        onKeyDown={ this.onKeyDown }
-                        role={ role }
+                        ariaLabel={ariaLabel}
+                        buttonRef={(n: any) => (this.closeButtonNode = n)}
+                        content={children}
+                        modalRef={(n: any) => (this.modalNode = n)}
+                        onClickAway={this.onClickAway}
+                        onClose={this.onClose}
+                        onKeyDown={this.onKeyDown}
+                        role={role}
                     />
-                }
+                )}
             </Fragment>
         )
     }
