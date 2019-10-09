@@ -17,7 +17,7 @@ export const ModalContent = ({
     return ReactDOM.createPortal(
         <FocusTrap>
             <aside 
-                className="c-modal-cover" 
+                className="modal-cover" 
                 aria-label={ ariaLabel }
                 aria-modal="true"
                 onClick={ onClickAway }
@@ -25,17 +25,17 @@ export const ModalContent = ({
                 role={ role } 
                 tabIndex={-1}
             >
-                <div className="c-modal" ref={ modalRef }>
+                <div className="modal" ref={ modalRef }>
                     <button 
                         aria-labelledby="close-modal"
-                        className="c-modal__close"
+                        className="modal__close"
                         onClick={ onClose }
                         ref={ buttonRef }
                     >
                         <span id="close-modal" className="u-hide-visually">Close Modal</span>
-                        <svg className="c-modal__close-icon" viewBox="0 0 40 40"><path d="M 10,10 L 30,30 M 30,10 L 10,30"></path></svg>
+                        <svg className="modal__close-icon" viewBox="0 0 40 40"><path d="M 10,10 L 30,30 M 30,10 L 10,30"></path></svg>
                     </button>
-                    <div className="c-modal__body">
+                    <div className="modal__body">
                         { content }
                     </div>
                 </div>

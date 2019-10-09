@@ -1,4 +1,4 @@
-.c-btn {
+.btn {
     padding: .1em .5em;
     color: #4285f4;
     background: #e2edff;
@@ -7,10 +7,10 @@
     cursor: pointer;
     transition: background 0.15s ease-out;
 }
-.c-btn:hover {
+.btn:hover {
     background: #cbddfb;
 }
-.c-btn:focus {
+.btn:focus {
     outline: 0;
     box-shadow: 0 0 4px currentColor;
 }

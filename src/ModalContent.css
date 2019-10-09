@@ -1,4 +1,4 @@
-.c-modal-cover {
+.modal-cover {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     background-color: rgba(0, 0, 0, 0.15);
   }
   
-  .c-modal {
+  .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,7 +23,7 @@
   }
 
   @media screen and (min-width: 500px) {
-    .c-modal {
+    .modal {
         left: 50%;
     top: 50%;
     height: auto;
@@ -33,7 +33,7 @@
     }
   }
 
-  .c-modal__close {
+  .modal__close {
     position: absolute;
     top: 0;
     right: 0;
@@ -45,7 +45,7 @@
     cursor: pointer;
   }
   
-  .c-modal__close-icon {
+  .modal__close-icon {
     width: 25px;
     height: 25px;
     fill: transparent;
@@ -54,6 +54,6 @@
     stroke-width: 2;
   }
   
-  .c-modal__body {
+  .modal__body {
     padding-top: .25em;
   }
