@@ -1,16 +1,26 @@
-import React, { Component, Fragment, MouseEvent } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import { ModalContent } from './ModalContent'
 import { ModalTrigger } from './ModalTrigger'
 
-export class Modal extends Component {
+interface IProps {
+    ariaLabel: string
+    role?: string
+    triggerText: string
+}
+
+interface IState {
+    isOpen: boolean
+}
+
+export class Modal extends Component<IProps, IState>{
     modalNode: any
-    closeButtonNode: any
     openButtonNode: any
+    closeButtonNode: any
 
     state = { isOpen: false }
     
-    onClickAway = (e: MouseEvent) => {
+    onClickAway = (e) => {
         if (this.modalNode && this.modalNode.contains(e.target)) return;
         this.onClose();
     };

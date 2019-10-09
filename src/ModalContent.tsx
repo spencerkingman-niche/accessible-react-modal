@@ -1,7 +1,8 @@
+import './ModalContent.css'
+
+import FocusTrap from 'focus-trap-react'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './ModalContent.css'
-import FocusTrap from 'focus-trap-react'
 
 export const ModalContent = ({
     ariaLabel,
@@ -22,7 +23,7 @@ export const ModalContent = ({
                 onClick={ onClickAway }
                 onKeyDown={ onKeyDown } 
                 role={ role } 
-                tabIndex="-1"
+                tabIndex={-1}
             >
                 <div className="c-modal" ref={ modalRef }>
                     <button 
