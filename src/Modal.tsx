@@ -22,6 +22,7 @@ export class Modal extends Component<IProps, IState> {
     state = { isOpen: false }
 
     onClickAway = (e: MouseEvent) => {
+        // If the "clickAway" was actually within the modal, return without closing the modal. 
         if (this.modalNode && this.modalNode.contains(e.target)) {
             return
         }

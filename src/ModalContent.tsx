@@ -30,6 +30,11 @@ export const ModalContent = ({
     // and second argument is the DOM node we want to attach it to.
     // We want it appended to the end of document.body
     return ReactDOM.createPortal(
+        // Focus trap is a third-party-solution to the difficult problem of keeping the focus-loop
+        // in the modal only.
+        
+        // Use a distinct <aside> HTML element for the "modal-cover", instead of a pseudo-element so 
+        // that we can add a click handler and close the modal onClickAway
         <FocusTrap>
             <aside
                 className="modal-cover"
