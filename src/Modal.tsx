@@ -36,7 +36,7 @@ export class Modal extends Component<IProps, IState> {
 
     onOpen = () => {
         this.setState({ isOpen: true }, () => {
-            // We have to focus the closeButton in a callback to make sure it 
+            // We have to focus the closeButton in a callback to make sure it
             // actually exists when we call focus()
             this.closeButtonNode.focus()
         })
@@ -64,7 +64,7 @@ export class Modal extends Component<IProps, IState> {
                     text={triggerText}
                 />
                 {// When the modal is not opened it is not rendered into the DOM
-                    isOpen && (
+                isOpen && (
                     <ModalContent
                         ariaLabel={ariaLabel}
                         buttonRef={(n: any) => (this.closeButtonNode = n)}
